@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="cirtesu.SLDPRT">
+  <link
+    name="cirtesu">
+    <inertial>
+      <origin
+        xyz="-7.4302E-16 1.12296402645512E-16 1.834"
+        rpy="0 0 0" />
+      <mass
+        value="425950" />
+      <inertia
+        ixx="5222200"
+        ixy="1.6174E-09"
+        ixz="-1.6986E-10"
+        iyy="8218600"
+        iyz="2.57702863548736E-11"
+        izz="10719000" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cirtesu/meshes/cirtesu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+        <!-- <color
+          rgba="0.69804 0.69804 0.69804 1" />
+        <texture
+          filename="package://cirtesu/textures/" /> -->
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cirtesu/meshes/cirtesu.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
