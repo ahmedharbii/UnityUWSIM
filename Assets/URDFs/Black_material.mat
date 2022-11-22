@@ -42,6 +42,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
+  - _MATERIAL_FEATURE_CLEAR_COAT
   - _NORMALMAP_TANGENT_SPACE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -218,7 +219,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _CoatMask: 0
+    - _CoatMask: 0.204
     - _Cull: 2
     - _CullMode: 2
     - _CullModeForward: 2
@@ -265,7 +266,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.059827164
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _Mode: 0

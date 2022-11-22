@@ -1,0 +1,9 @@
+* Image topic - Two approaches :
+1- Using CameraCapturer.cs and BlueRovCameraRosPublisher.cs
+
+2- using MyCameraPublisher.cs (flipped image) 
+
+
+
+* cmd_vel: using BlueRovVelocityControl and BlueRovCmdVelocitySubscriber
+
