@@ -18,18 +18,11 @@ public class BlueRovVelocityControl : MonoBehaviour
     }
 
     private void moveVelocityRigidbody() {
-        Vector3 movement = new Vector3(-lvx * Time.deltaTime, lvz * Time.deltaTime, lvz * Time.deltaTime);
+        Vector3 movement = new Vector3(-lvx * Time.deltaTime, lvz * Time.deltaTime, lvy * Time.deltaTime);
         transform.Translate(movement);
         transform.Rotate(0, avz * Time.deltaTime, 0);
     }
 
-
-    void update()
-    {
-        if(movementActive) {
-            moveVelocityRigidbody();
-        }
-    }
 
     public void moveVelocity(RosMessageTypes.Geometry.TwistMsg velocityMessage){
         this.lvx = (float)velocityMessage.linear.x;
@@ -40,14 +33,16 @@ public class BlueRovVelocityControl : MonoBehaviour
     }
 
     // // Update is called once per frame
-    void FixedUpdate()
+    void Update() // or fixed update
     {
         if(movementActive) {
             moveVelocityRigidbody();
         }
     }
+}   
 
-    
+
+
     //         private void KeyBoardUpdate()
     //     {
     //         float moveDirection = Input.GetAxis("Vertical");
@@ -81,4 +76,3 @@ public class BlueRovVelocityControl : MonoBehaviour
     //         }
     //         RobotInput(inputSpeed, inputRotationSpeed);
     //     }
-}   

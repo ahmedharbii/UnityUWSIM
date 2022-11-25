@@ -1,0 +1,48 @@
+{
+  "constants": {
+    "totalFrames": 10000,
+    "randomSeed": 539662031
+  },
+  "randomizers": {
+    "randomizerGroups": [
+      {
+        "randomizerId": "XYZTranslationRandomizer",
+        "metadata": {
+          "name": "",
+          "description": "",
+          "imageLink": ""
+        },
+        "state": {
+          "enabled": true,
+          "canBeSwitchedByUser": true
+        },
+        "items": {
+          "translationRange": {
+            "param": {
+              "metadata": {
+                "name": "",
+                "description": "",
+                "imageLink": ""
+              },
+              "items": {
+                "value": {
+                  "samplerOptions": {
+                    "metadata": {
+                      "name": "",
+                      "description": "",
+                      "imageLink": ""
+                    },
+                    "uniform": {
+                      "min": -1.0,
+                      "max": 1.0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

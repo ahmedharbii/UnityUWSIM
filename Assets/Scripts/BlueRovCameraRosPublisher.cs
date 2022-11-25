@@ -40,8 +40,10 @@ public class BlueRovCameraRosPublisher : MonoBehaviour
         header = new HeaderMsg();
 
         image_msg = new CompressedImageMsg();
-        image_msg.header.stamp.sec =( int)(System.DateTime.UtcNow - new DateTime(1970,1,1)).TotalSeconds;
-        image_msg.header.stamp.nanosec = (uint)(System.DateTime.UtcNow - new DateTime(1970,1,1)).Milliseconds*1000*1000;
+        
+        //Not working with ROS2:
+        // image_msg.header.stamp.sec =( int)(System.DateTime.UtcNow - new DateTime(1970,1,1)).TotalSeconds;
+        // image_msg.header.stamp.nanosec = (uint)(System.DateTime.UtcNow - new DateTime(1970,1,1)).Milliseconds*1000*1000;
 
      
     }
@@ -57,8 +59,12 @@ public class BlueRovCameraRosPublisher : MonoBehaviour
             // header.stamp = clock._time();
             // header = new HeaderMsg();
             // image_msg = new ImageMsg();
-            var timestamp = new TimeStamp(Clock.time);
-            header.stamp = timestamp;
+
+            //Not working with ROS2 ///////////////////////////////////////////
+            // var timestamp = new TimeStamp(Clock.time);
+            // header.stamp = timestamp;
+
+
             image_msg.header = header;
             // infoCamera.header = header;
 
