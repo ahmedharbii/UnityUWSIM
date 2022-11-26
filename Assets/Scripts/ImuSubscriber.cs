@@ -27,7 +27,7 @@ public class ImuSubscriber : MonoBehaviour
     private QuaternionMsg imuQuaternion;
     private QuaternionMsg _geometryQuaternion;
     private Vector3 _angularVelocity;
-    private Vector3 _linearAcceleration;
+    private Vector3Msg _linearAcceleration;
     //Quaternions
     private double q1;
     private double q2;
@@ -38,13 +38,17 @@ public class ImuSubscriber : MonoBehaviour
     private double pitch;
     private double yaw;
     //https://docs.unity3d.com/ScriptReference/Quaternion-eulerAngles.html
-    float rotationSpeed = 0;
-    Vector3 currentEulerAngles;
-    Vector3 imuLinearVelocity;
-    Quaternion currentRotation;
-    float x;
-    float y;
-    float z;
+    float linearSpeed = 20F;
+    float rotationSpeed = 0.1F;
+    private Vector3 currentEulerAngles;
+    private Vector3Msg imuLinearAcc;
+    private Quaternion currentRotation;
+    private Vector3 currentAcceleration;
+    private Vector3 currentChangeVelocity;
+    private Vector3 currentChangePosition;
+    private double acc_x = 0;
+    private double acc_y = 0;
+    private double acc_z = 0;
 
     // private Noise.Gaussian gaussianNoise;
     // private Noise.Bias biasNoise;
@@ -63,16 +67,17 @@ public class ImuSubscriber : MonoBehaviour
     {
         // Debug.Log("" + imuChange);
         // Debug.Log("" + imuChange.orientation); //Vector3Msg
-        // this.imuLinearVelocity = imuChange.linear_velocity;
+
         this.imuQuaternion = imuChange.orientation; //getting orientations from 
-        // this._imuOrientations = imuChange.orientation;
+        this.imuLinearAcc = imuChange.linear_acceleration;
+
         this._transform = this.GetComponent<Transform>();
         this._rb = this.GetComponent<Rigidbody>();
-        // currentEulerAngles = this._rb.transform.rotation.eulerAngles;
-        // this._geometryQuaternion = new Vector4();
+
         this._geometryQuaternion = imuChange.orientation;
         this._angularVelocity = new Vector3();
-        this._linearAcceleration = new Vector3();
+        this._linearAcceleration = imuChange.linear_acceleration;
+        this.currentChangeVelocity = new Vector3(0f, 0f, 0f);
     }
 
 
@@ -85,15 +90,13 @@ public class ImuSubscriber : MonoBehaviour
         q3 = this.imuQuaternion.z;
         q4 = this.imuQuaternion.w;
 
-        x = this.imuLinearVelocity.x;
-        y = this.imuLinearVelocity.y;
-        z = this.imuLinearVelocity.z;
-
+        acc_x = this.imuLinearAcc.x;
+        acc_y = this.imuLinearAcc.y;
+        acc_z =  this.imuLinearAcc.z - 9.8; //compensating the gravity component 
         // roll (x-axis rotation)
         double sinr_cosp = 2 * (q4 * q1 + q2 * q3);
         double cosr_cosp = 1 - 2 * (q1 * q1 + q2 * q2);
         roll = Math.Atan2(sinr_cosp, cosr_cosp);
-
         // pitch (y-axis rotation)
         double sinp = 2 * (q4 * q2 - q3 * q1);
         if (Math.Abs(sinp) >= 1)
@@ -103,27 +106,35 @@ public class ImuSubscriber : MonoBehaviour
             }
         else
             pitch = Math.Sin(sinp);
-
         // yaw (z-axis rotation)
         double siny_cosp = 2 * (q4 * q3 + q1 * q2);
         double cosy_cosp = 1 - 2 * (q2 * q2 + q3 * q3);
         yaw = Math.Atan2(siny_cosp, cosy_cosp);
 
-        // currentEulerAngles += new Vector3((float)pitch, (float)yaw, (float)roll) * Time.deltaTime * rotationSpeed;
-
-        currentEulerAngles = new Vector3((float)pitch, (float)yaw, (float)roll);// * Time.deltaTime * rotationSpeed;
-        // t // you will get this from velocity over time
+        // Passing the euler angles to rigid body transform
+        currentEulerAngles = new Vector3((float)pitch, -(float)yaw, -(float)roll) * rotationSpeed;// * Time.deltaTime * rotationSpeed;
         currentRotation.eulerAngles = currentEulerAngles;
         this._rb.transform.Rotate(currentEulerAngles); // https://github.com/IntelRealSense/librealsense/issues/10858
 
 
-        // should be from linear acceleration
+        //Linear acceleration
+        currentAcceleration = new Vector3(-(float)acc_y, -(float)acc_z, (float)acc_x) * linearSpeed;
+        //Numeric integration from acceleration
+        currentChangeVelocity += currentAcceleration * Time.deltaTime; // * Time.deltaTime* Time.deltaTime;
+        
+        //https://robotics.stackexchange.com/questions/16757/what-is-the-algorithm-to-get-position-linear-displacement-and-linear-velocity
+        //using numeric integration: position += speed*deltaTime + 0.5*xfmAccelerometerReading*deltaTime*deltaTime
+        
+        currentChangePosition = currentChangeVelocity * Time.deltaTime +
+                                                 Vector3.Scale(currentAcceleration, new Vector3(0.5f, 0.5f, 0.5f)) * Time.deltaTime * Time.deltaTime;
+        // this._rb.transform.Translate(currentChangeVelocity * Time.deltaTime);
+        // currentChangePosition = currentChangeVelocity * Time.deltaTime;
         this._rb.transform.Translate(currentChangePosition);
     
 
         // you will get this from velocity over time
 
-        // this._rb.transform.position = currentChangePosition;
+        // this._rb.transform.position = currentChangeVelocity;
         Debug.Log("here");
 
         // Vector3 localLinearVelocity = this._transform.InverseTransformDirection(this._rb.velocity);
@@ -136,8 +147,6 @@ public class ImuSubscriber : MonoBehaviour
         // // Raw
         // this._geometryQuaternion = new QuaternionMsg(this._transform.rotation.x, this._transform.rotation.y,
         //                                         this._transform.rotation.z, this._transform.rotation.w);
-        // // this._rb.transform.rotation.x = _geometryQuaternion;
-        // // this._geometryQuaternion = new Vector4(q1, q2, q3, q4);
         // this._angularVelocity = -1 * this.transform.InverseTransformVector(this.GetComponent<Rigidbody>().angularVelocity);
         // this._linearAcceleration = acceleration;
     }
