@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2567.9702, g: 2261.9807, b: 2543.6724, a: 1}
+  m_IndirectSpecularColor: {r: 2569.8381, g: 2262.475, b: 2539.5435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6660,6 +6660,7 @@ GameObject:
   - component: {fileID: 1883621516}
   - component: {fileID: 1883621512}
   - component: {fileID: 1883621517}
+  - component: {fileID: 1883621518}
   m_Layer: 0
   m_Name: BlueRov2
   m_TagString: robot
@@ -6748,13 +6749,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883621507}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33daec08ba466bb03bbc451118f89f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imuTopic: /br5/mavros/imu/data
   speed: 10
+--- !u!114 &1883621518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883621507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb501411533dfb0719f5127802e971ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1936352239
 GameObject:
   m_ObjectHideFlags: 8

@@ -1,0 +1,54 @@
+{
+    "name": "RovControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "8204a62b-541e-413f-99fc-7968a89e4a17",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "ea08f477-4cd8-4bac-8706-a26b57485438",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "ce0cb7e6-b79c-4861-9197-8138e2210f79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1e60a931-1565-4d66-8a61-b3aa82aed6f1",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a48b21c0-6fd9-46c1-a07a-89992c270db7",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
