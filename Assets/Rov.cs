@@ -11,6 +11,8 @@ public class rov : MonoBehaviour
     void Awake() //called even before start
     {
         controls = new RovControls();
+        controls.Gameplay.MoveUp.performed += ctx => MoveUp();
+        controls.Gameplay.MoveDown.performed += ctx => MoveDown();
         // ctx: context - name it anything
         // => for lambda expression
         controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
@@ -25,12 +27,23 @@ public class rov : MonoBehaviour
     void Update()
     {
         // Multiply by Time.deltaTime to make it framerate independent
-        Vector2 m = Time.deltaTime * new Vector2(-move.x, move.y);
-        transform.Translate(m, Space.World); //the world space
+        Vector3 m = Time.deltaTime * new Vector3(-move.x, 0 , -move.y);
+        transform.Translate(m, Space.World); //); //the world space
 
-        Vector2 r = Time.deltaTime * 100f * new Vector2(-rotate.y, rotate.x); //100f to make it quicker
+        // * 50f *
+        Vector2 r = 30f * Time.deltaTime * new Vector2(rotate.y, rotate.x); //100f to make it quicker
         transform.Rotate(r, Space.World); //the world space
 
+    }
+
+    void MoveUp()
+    {
+        transform.Translate(0, -0.5f * Time.deltaTime, 0);
+    }
+    
+    void MoveDown()
+    {
+        transform.Translate(0, 0.5f * Time.deltaTime, 0);
     }
 
     void OnEnable()
