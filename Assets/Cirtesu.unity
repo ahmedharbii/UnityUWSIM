@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2569.897, g: 2262.51, b: 2539.5825, a: 1}
+  m_IndirectSpecularColor: {r: 2570.4849, g: 2262.967, b: 2540.0435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4000,7 +4000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &840987574
 Transform:
   m_ObjectHideFlags: 0
@@ -6319,7 +6319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerEndpoint:
-    rid: 338844745929326606
+    rid: 1677078566972948480
   accumulationSettings:
     rid: 338844701676797986
   references:
@@ -6333,7 +6333,7 @@ MonoBehaviour:
         shutterFullyOpen: 0
         shutterBeginsClosing: 1
         adaptFixedLengthScenarioFrames: 1
-    - rid: 338844745929326606
+    - rid: 1677078566972948480
       type: {class: NoOutputEndpoint, ns: UnityEngine.Perception.GroundTruth.Consumers,
         asm: Unity.Perception.Runtime}
 --- !u!4 &1764883381
@@ -6589,7 +6589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1863331953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,6 +6658,7 @@ GameObject:
   - component: {fileID: 1883621510}
   - component: {fileID: 1883621509}
   - component: {fileID: 1883621516}
+  - component: {fileID: 1883621519}
   - component: {fileID: 1883621512}
   - component: {fileID: 1883621517}
   - component: {fileID: 1883621518}
@@ -6692,7 +6693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883621507}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -0, y: 7.39, z: 3.29}
+  m_LocalPosition: {x: -0, y: 4.53, z: 3.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6768,6 +6769,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb501411533dfb0719f5127802e971ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1883621519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883621507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b1167a3c391d241809d65954cfb900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvx: 0
+  lvy: 0
+  lvz: 0
+  avz: 0
+  movementActive: 0
+  rb: {fileID: 0}
 --- !u!1 &1936352239
 GameObject:
   m_ObjectHideFlags: 8
@@ -6876,6 +6895,7 @@ GameObject:
   - component: {fileID: 1966198764}
   - component: {fileID: 1966198766}
   - component: {fileID: 1966198765}
+  - component: {fileID: 1966198767}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -7121,7 +7141,7 @@ MonoBehaviour:
       type: {class: BoundingBox3DLabeler, ns: UnityEngine.Perception.GroundTruth.Labelers,
         asm: Unity.Perception.Runtime}
       data:
-        enabled: 1
+        enabled: 0
         annotationId: bounding box 3D
         idLabelConfig: {fileID: 11400000, guid: 7d4df4dc95d2e5adc8cb7ff601db587d,
           type: 2}
@@ -7157,6 +7177,22 @@ MonoBehaviour:
   resWidth: 640
   resHeight: 448
   jpg: 
+--- !u!114 &1966198767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966198759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b33f0bc2b78db642a758f07826d0dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labels:
+  - camera_position
+  useAutoLabeling: 0
+  autoLabelingSchemeType: 
 --- !u!1 &1984707720
 GameObject:
   m_ObjectHideFlags: 0

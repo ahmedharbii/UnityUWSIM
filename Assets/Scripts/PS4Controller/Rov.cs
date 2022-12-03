@@ -31,19 +31,19 @@ public class rov : MonoBehaviour
         transform.Translate(m, Space.World); //); //the world space
 
         // * 50f *
-        Vector2 r = 30f * Time.deltaTime * new Vector2(rotate.y, rotate.x); //100f to make it quicker
+        Vector2 r = 20f * Time.deltaTime * new Vector2(rotate.y, rotate.x); //100f to make it quicker
         transform.Rotate(r, Space.World); //the world space
 
     }
 
     void MoveUp()
     {
-        transform.Translate(0, -0.5f * Time.deltaTime, 0);
+        transform.Translate(0, -0.2f * Time.deltaTime, 0);
     }
     
     void MoveDown()
     {
-        transform.Translate(0, 0.5f * Time.deltaTime, 0);
+        transform.Translate(0, 0.2f * Time.deltaTime, 0);
     }
 
     void OnEnable()
