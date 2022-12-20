@@ -27,23 +27,23 @@ public class rov : MonoBehaviour
     void Update()
     {
         // Multiply by Time.deltaTime to make it framerate independent
-        Vector3 m = Time.deltaTime * new Vector3(-move.x, 0 , -move.y);
+        Vector3 m = 0.2f * Time.deltaTime * new Vector3(-move.x, 0 , -move.y);
         transform.Translate(m, Space.World); //); //the world space
 
         // * 50f *
-        Vector2 r = 20f * Time.deltaTime * new Vector2(rotate.y, rotate.x); //100f to make it quicker
+        Vector2 r = 10f * Time.deltaTime * new Vector2(rotate.y, rotate.x); //100f to make it quicker
         transform.Rotate(r, Space.World); //the world space
 
     }
 
     void MoveUp()
     {
-        transform.Translate(0, -0.2f * Time.deltaTime, 0);
+        transform.Translate(0, -0.05f * Time.deltaTime, 0);
     }
     
     void MoveDown()
     {
-        transform.Translate(0, 0.2f * Time.deltaTime, 0);
+        transform.Translate(0, 0.05f * Time.deltaTime, 0);
     }
 
     void OnEnable()
