@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="my_robot">
+
+<xacro:include filename="dock_base/dock_base.urdf" />
+<xacro:include filename="aruco_marker/aruco_marker.urdf" />
+
+
+<joint name="dock_aruco" type="fixed">
+  <parent link="dock_base"/>
+  <child link="base_link"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>

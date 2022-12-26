@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<link
+  name="dock_base">
+  <inertial>
+    <origin
+      xyz="-0.58401 -0.46817 0.42127"
+      rpy="0 0 0" />
+    <mass
+      value="42.043" />
+    <inertia
+      ixx="3.4293"
+      ixy="3.48467093592189E-14"
+      ixz="-0.24023"
+      iyy="2.6134"
+      iyz="-3.89843594391804E-14"
+      izz="3.6201" />
+  </inertial>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.053520969588476 -0.000678348056171242 -0.0277754718111396"
+        rpy="0 0 0" />
+      <mass
+        value="0.0224018252295753" />
+      <inertia
+        ixx="4.83862265108561E-06"
+        ixy="-1.45284166502096E-22"
+        ixz="-9.14795583034646E-23"
+        iyy="9.37469320384242E-06"
+        iyz="1.33797870130456E-22"
+        izz="4.83862265108561E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aruco_marker/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aruco_marker/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="aruco_black">
+    <inertial>
+      <origin
+        xyz="-0.00027873 0.0095 -1.6255E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0019727" />
+      <inertia
+        ixx="4.7044E-07"
+        ixy="-8.6215E-26"
+        ixz="1.6309E-08"
+        iyy="9.1631E-07"
+        iyz="-3.5453E-26"
+        izz="4.462E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aruco_marker/meshes/aruco_black.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aruco_marker/meshes/aruco_black.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="aruco_black_joint"
+    type="fixed">
+    <origin
+      xyz="0.053521 0.027775 -0.0051871"
+      rpy="1.5708 0 0" />
+    <parent
+      link="dock_base" />
+    <child
+      link="aruco_black" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <visual>
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 0 0" />
+    <geometry>
+      <mesh
+        filename="package://dock_base/meshes/dock_base.STL" />
+    </geometry>
+    <material
+      name="">
+      <color
+        rgba="0.79216 0.81961 0.93333 1" />
+      <texture
+        filename="package://dock_base/textures/" />
+    </material>
+  </visual>
+  <collision>
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 0 0" />
+    <geometry>
+      <mesh
+        filename="package://dock_base/meshes/dock_base.STL" />
+    </geometry>
+  </collision>
+</link>

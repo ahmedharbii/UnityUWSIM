@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="docking_station_3">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0654590951466708 -2.14828155264968E-14 0.316095145362664"
+        rpy="0 0 0" />
+      <mass
+        value="42.1405004061533" />
+      <inertia
+        ixx="1.1682464130181"
+        ixy="1.60890850451873E-14"
+        ixz="-9.97053038821253E-15"
+        iyy="1.38640694776041"
+        iyz="-1.95937235806278E-15"
+        izz="1.23920905004594" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://docking_station_3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://docking_station_3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
