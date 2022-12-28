@@ -33,46 +33,10 @@ public class BlueRovVelocityControl : MonoBehaviour
     }
 
     // // Update is called once per frame
-    void Update() // or fixed update
+    void FixedUpdate() // or fixed update
     {
         if(movementActive) {
             moveVelocityRigidbody();
         }
     }
 }   
-
-
-
-    //         private void KeyBoardUpdate()
-    //     {
-    //         float moveDirection = Input.GetAxis("Vertical");
-    //         float inputSpeed;
-    //         float inputRotationSpeed;
-    //         if (moveDirection > 0)
-    //         {
-    //             inputSpeed = maxLinearSpeed;
-    //         }
-    //         else if (moveDirection < 0)
-    //         {
-    //             inputSpeed = maxLinearSpeed * -1;
-    //         }
-    //         else
-    //         {
-    //             inputSpeed = 0;
-    //         }
-
-    //         float turnDirction = Input.GetAxis("Horizontal");
-    //         if (turnDirction > 0)
-    //         {
-    //             inputRotationSpeed = maxRotationalSpeed;
-    //         }
-    //         else if (turnDirction < 0)
-    //         {
-    //             inputRotationSpeed = maxRotationalSpeed * -1;
-    //         }
-    //         else
-    //         {
-    //             inputRotationSpeed = 0;
-    //         }
-    //         RobotInput(inputSpeed, inputRotationSpeed);
-    //     }
