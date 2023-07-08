@@ -1,0 +1,26 @@
+Language:        CSharp
+BasedOnStyle:    Google
+
+AccessModifierOffset: -2
+AlignOperands:   true
+AllowShortIfStatementsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: true
+BreakBeforeBraces: Allman
+BreakBeforeTernaryOperators: false
+ColumnLimit:     100
+CommentPragmas:  '^ IWYU pragma:'
+ContinuationIndentWidth: 4
+IndentWidth:     4
+IndentCaseLabels: true
+KeepEmptyLinesAtTheStartOfBlocks: true
+NamespaceIndentation: None
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: false
+SpaceBeforeOpenSquareBracket: ControlStatements
+SpaceWithinSquareBrackets: true
+SpaceAfterTypeCast: true
+Standard:        CSharp
+UseTab:          false
+TabWidth:        4
+NamespaceOpeningBraceOnSameLine: true
+SortIncludes:    false
