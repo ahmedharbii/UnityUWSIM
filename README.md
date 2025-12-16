@@ -1,7 +1,9 @@
 # UnityUWSIM
- Underwater Simulator using Unity
+The Underwater Simulator, developed using Unity, served as the simulator for the MIR Competition held at [Universitat Jaume I (UJI)](https://www.uji.es/) in the [Marine & Maritime Intelligent Robotics (MIR) Erasmus Masters](https://www.master-mir.eu/) program in 2023.  
 
-Simulation environment is based on CIRTESU Lab.
+Link to the competition: [2nd MIR Annual Symposium Robotics Challenge – UJI, Spain, June 20-23, 2023](https://www.master-mir.eu/2nd-mir-annual-symposium-robotics-challenge-uji-spain-june-20-23-2023/)
+
+The simulation environment is based on the CIRTESU Lab.
 
 ## Case Scenarios:
 
