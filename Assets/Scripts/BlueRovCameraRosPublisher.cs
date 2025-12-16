@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.BuiltinInterfaces;
-using RosMessageTypes.Sensor; // ImageMsg
+using RosMessageTypes.Sensor;
 using RosMessageTypes.Std;
 using Unity.Robotics.Core;
 using System;
