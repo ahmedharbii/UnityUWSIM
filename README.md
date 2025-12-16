@@ -21,12 +21,12 @@ The environment has 4 main parts:
 
 Missions:
 1. Obstacle avoidance with the Rock and the whales.
-2. Safely maneuver and go to the docking station.
+2. Safely manoeuvre and go to the docking station.
 
 
 ## Prerequistes:
 1. [ROS TCP Endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint) 
-(N.B: Select ROS version from branches)
+(N.B.: Select ROS version from branches)
 2. [Perception Package](https://github.com/Unity-Technologies/com.unity.perception)
 3. [URDF importer](https://github.com/Unity-Technologies/URDF-Importer)
 
